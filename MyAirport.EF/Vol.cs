@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MCSP.MyAirport.EF
 {
@@ -8,8 +10,9 @@ namespace MCSP.MyAirport.EF
     {
         public Vol()
         {
-
+            this.Bagages = new List<Bagage>();
         }
+        [Key]
         public int VolId { get; set; }
         public string Cie { get; set; }
         public string Lig { get; set; }
@@ -19,6 +22,8 @@ namespace MCSP.MyAirport.EF
         public short Pax { get; set; }
         public string Des { get; set; }
 
+        
 
+        public virtual ICollection<Bagage> Bagages { get; set; }
     }
 }

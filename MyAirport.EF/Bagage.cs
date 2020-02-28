@@ -12,7 +12,7 @@ namespace MCSP.MyAirport.EF
         }
         public int BagageId { get; set; }
         public int? VolId { get; set; }
-        public Vol Vol { get; set; }
+        public virtual Vol Vol { get; set; }
         public string CodeIata { get; set; }
         public DateTime DateCreation { get; set; }
         public string Classe { get; set; }
