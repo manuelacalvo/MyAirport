@@ -12,15 +12,27 @@ namespace MCSP.MyAirport.EF
         {
             this.Bagages = new List<Bagage>();
         }
-        [Key]
+        [Column("ID_VOL")]
         public int VolId { get; set; }
-        public string Cie { get; set; }
-        public string Lig { get; set; }
-        public DateTime Dhc { get; set; }
-        public string Pkg { get; set; }
-        public string Imm { get; set; }
-        public short Pax { get; set; }
-        public string Des { get; set; }
+
+        [Column(TypeName = "char(5)")]
+        public string Cie { get; set; } = null!;
+
+        [Column(TypeName = "varchar(5)")]
+        public string Lig { get; set; } = null!;
+
+        public DateTime? Dhc { get; set; }
+
+        [Column(TypeName = "char(3)")]
+        public string? Pkg { get; set; }
+
+        [Column(TypeName = "char(6)")]
+        public string? Imm { get; set; }
+
+        public short? Pax { get; set; }
+
+        [Column(TypeName = "char(3)")]
+        public string? Des { get; set; }
 
         
 
