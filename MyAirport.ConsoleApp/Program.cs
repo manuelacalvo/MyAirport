@@ -1,15 +1,23 @@
 ﻿using System;
 using MCSP.MyAirport.EF;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using System.Configuration;
 
 namespace MCSP.MyAirport.ConsoleApp
 {
     class Program
     {
+
+        public static readonly ILoggerFactory MyAirportLoggerFactory = LoggerFactory.Create(builder => { builder.AddConsole(); });
         static void Main(string[] args)
         {
+            var optionsBuilder = new DbContextOptionsBuilder<MyAirportContext>();
+            optionsBuilder.UseLoggerFactory(MyAirportLoggerFactory);
+            optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["MyAirportDatabase"].ConnectionString);
             System.Console.WriteLine("MyAirport project bonjour!!");
-            using (var db = new MyAirportContext())
+            using (var db = new MyAirportContext(optionsBuilder.Options))
             {
                 
                 // Create
