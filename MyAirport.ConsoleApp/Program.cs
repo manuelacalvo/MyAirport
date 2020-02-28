@@ -17,8 +17,8 @@ namespace MCSP.MyAirport.ConsoleApp
             optionsBuilder.UseLoggerFactory(MyAirportLoggerFactory);
             optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["MyAirportDatabase"].ConnectionString);
             System.Console.WriteLine("MyAirport project bonjour!!");
-            using (//var db = new MyAirportContext(optionsBuilder.Options)
-                var db = new MyAirportContext()
+            using (var db = new MyAirportContext(optionsBuilder.Options)
+                //var db = new MyAirportContext()
                 )
             {
                 
