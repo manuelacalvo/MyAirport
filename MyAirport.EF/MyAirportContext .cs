@@ -9,22 +9,22 @@ namespace MCSP.MyAirport.EF
 {
     public class MyAirportContext : DbContext
     {
-        /*public MyAirportContext(DbContextOptions<MyAirportContext> options) : base(options)
+        public MyAirportContext(DbContextOptions<MyAirportContext> options) : base(options)
         {
 
         }
-        */
-       // public static readonly ILoggerFactory MyAirportLoggerFactory = LoggerFactory.Create(builder => { builder.AddConsole(); }); 
+        
+        public static readonly ILoggerFactory MyAirportLoggerFactory = LoggerFactory.Create(builder => { builder.AddConsole(); });
 
-        public DbSet<Bagage> Bagages { get; set; }
-        public DbSet<Vol> Vols { get; set; }
+        public DbSet<Bagage> Bagages { get; set; } = null!;
+        public DbSet<Vol> Vols { get; set; } = null!;
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
+       /* protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MyAirport;Integrated Security=True");
             //options.UseSqlServer(ConfigurationManager.ConnectionStrings["MyAirportDatabase"].ConnectionString);
             //options.UseLoggerFactory(MyAirportLoggerFactory);
-        }
+        }*/
     }
 
 }
