@@ -11,6 +11,7 @@ namespace MCSP.MyAirport.ConsoleApp
             System.Console.WriteLine("MyAirport project bonjour!!");
             using (var db = new MyAirportContext())
             {
+                
                 // Create
                 Console.WriteLine("Création du vol LH1232");
                 Vol v1 = new Vol
@@ -41,7 +42,7 @@ namespace MCSP.MyAirport.ConsoleApp
                 Console.WriteLine("creation du bagage 012387364501");
                 Bagage b1 = new Bagage
                 {
-                    Classe = 'Y',
+                    Classe = "Y",
                     CodeIata = "012387364501",
                     DateCreation = Convert.ToDateTime("14/01/2020 12:52"),
                     Destination = "BEG"
@@ -51,7 +52,7 @@ namespace MCSP.MyAirport.ConsoleApp
                 db.SaveChanges();
                 Console.ReadLine();
 
-                // Read
+                // ReadBagages_Vols_VolI
                 Console.WriteLine("Voici la liste des vols disponibles");
                 var vol = db.Vols
                     .OrderBy(v => v.Cie);
@@ -63,6 +64,15 @@ namespace MCSP.MyAirport.ConsoleApp
 
                 // Update
                 Console.WriteLine($"Le bagage {b1.BagageId} est modifié pour être rattaché au vol {v1.VolId} => {v1.Cie}{v1.Lig}");
+                b1.VolId = v1.VolId;
+                db.SaveChanges();
+                Console.ReadLine();
+
+                // Delete vol et bagages du vol
+                Console.WriteLine($"Suppression du vol {v1.VolId} => {v1.Cie}{v1.Lig}");
+                db.Remove(v1);
+                db.SaveChanges();
+                Console.ReadLine();
 
             }
         }
