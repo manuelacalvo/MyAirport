@@ -41,7 +41,7 @@ namespace MCSP.MyAirport.ConsoleApp
                 Console.WriteLine("creation du bagage 012387364501");
                 Bagage b1 = new Bagage
                 {
-                    Classe = 'Y',
+                    Classe = "Y",
                     CodeIata = "012387364501",
                     DateCreation = Convert.ToDateTime("14/01/2020 12:52"),
                     Destination = "BEG"
@@ -51,7 +51,7 @@ namespace MCSP.MyAirport.ConsoleApp
                 db.SaveChanges();
                 Console.ReadLine();
 
-                // Read
+                // ReadBagages_Vols_VolI
                 Console.WriteLine("Voici la liste des vols disponibles");
                 var vol = db.Vols
                     .OrderBy(v => v.Cie);
