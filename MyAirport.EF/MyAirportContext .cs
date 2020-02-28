@@ -5,8 +5,12 @@ using System.Text;
 
 namespace MCSP.MyAirport.EF
 {
-    class MyAirportContext : DbContext
+    public class MyAirportContext : DbContext
     {
+        public MyAirportContext()
+        {
+
+        }
         public DbSet<Bagage> Bagages { get; set; }
         public DbSet<Vol> Vols { get; set; }
 

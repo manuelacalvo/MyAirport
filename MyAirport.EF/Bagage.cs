@@ -4,8 +4,12 @@ using System.Text;
 
 namespace MCSP.MyAirport.EF
 {
-    class Bagage
+    public class Bagage
     {
+        public Bagage()
+        {
+
+        }
         public int BagageId { get; set; }
         public int VolId { get; set; }
         public Vol Vol { get; set; }
