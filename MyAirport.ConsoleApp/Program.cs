@@ -11,6 +11,7 @@ namespace MCSP.MyAirport.ConsoleApp
             System.Console.WriteLine("MyAirport project bonjour!!");
             using (var db = new MyAirportContext())
             {
+                
                 // Create
                 Console.WriteLine("Création du vol LH1232");
                 Vol v1 = new Vol
@@ -63,6 +64,15 @@ namespace MCSP.MyAirport.ConsoleApp
 
                 // Update
                 Console.WriteLine($"Le bagage {b1.BagageId} est modifié pour être rattaché au vol {v1.VolId} => {v1.Cie}{v1.Lig}");
+                b1.VolId = v1.VolId;
+                db.SaveChanges();
+                Console.ReadLine();
+
+                // Delete vol et bagages du vol
+                Console.WriteLine($"Suppression du vol {v1.VolId} => {v1.Cie}{v1.Lig}");
+                db.Remove(v1);
+                db.SaveChanges();
+                Console.ReadLine();
 
             }
         }
