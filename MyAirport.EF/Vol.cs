@@ -14,6 +14,7 @@ namespace MCSP.MyAirport.EF
         }
         [Key]
         public int VolId { get; set; }
+        [Column(TypeName = "varchar()")]
         public string Cie { get; set; }
         public string Lig { get; set; }
         public DateTime Dhc { get; set; }

@@ -76,6 +76,7 @@ namespace MCSP.MyAirport.ConsoleApp
                 Console.WriteLine($"Le bagage {b1.BagageId} est modifié pour être rattaché au vol {v1.VolId} => {v1.Cie}{v1.Lig}");
                 b1.VolId = v1.VolId;
                 db.SaveChanges();
+                v1.Bagages.ToList().ForEach(b => Console.WriteLine($"VOLID: {v1.VolId} -> bagage {b.BagageId}"));
                 Console.ReadLine();
 
                 // Delete vol et bagages du vol
