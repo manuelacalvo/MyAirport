@@ -19,7 +19,8 @@ namespace MCSP.MyAirport.EF
         public DbSet<Bagage> Bagages { get; set; } = null!;
         public DbSet<Vol> Vols { get; set; } = null!;
 
-    /*   protected override void OnConfiguring(DbContextOptionsBuilder options)
+
+       /*protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             //options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MyAirport;Integrated Security=True");
             options.UseSqlServer(ConfigurationManager.ConnectionStrings["MyAirportDatabase"].ConnectionString);
