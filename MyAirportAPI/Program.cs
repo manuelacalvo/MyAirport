@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace MyAirportAPI
+namespace MCSP.MyAirport.webAPI
 {
     public class Program
     {

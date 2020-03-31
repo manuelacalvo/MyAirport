@@ -10,8 +10,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MCSP.MyAirport.EF;
+using Microsoft.EntityFrameworkCore;
 
-namespace MyAirportAPI
+
+namespace MCSP.MyAirport.webAPI
 {
     public class Startup
     {
@@ -25,6 +28,7 @@ namespace MyAirportAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<MyAirportContext>(OptionsBuilderConfigurationExtensions => OptionsBuilderConfigurationExtensions.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MCSP_MyAirport;Integrated Security=True"));
             services.AddControllers();
         }
 

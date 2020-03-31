@@ -7,7 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyAirport.ConsoleApp", "MyA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyAirport.EF", "MyAirport.EF\MyAirport.EF.csproj", "{342F4903-EF9F-4F76-B4FF-3807D5C21FA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAirportAPI", "MyAirportAPI\MyAirportAPI.csproj", "{BE4B0E0B-9B46-4159-A7A4-344781BFDD17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyAirportAPI", "MyAirportAPI\MyAirportAPI.csproj", "{BE4B0E0B-9B46-4159-A7A4-344781BFDD17}"
+	ProjectSection(ProjectDependencies) = postProject
+		{342F4903-EF9F-4F76-B4FF-3807D5C21FA2} = {342F4903-EF9F-4F76-B4FF-3807D5C21FA2}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
