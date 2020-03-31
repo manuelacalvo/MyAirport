@@ -7,53 +7,52 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MCSP.MyAirport.EF;
 
-
-namespace MyAirportAPI
+namespace MyAirportAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BagagesController : ControllerBase
+    public class VolsController : ControllerBase
     {
         private readonly MyAirportContext _context;
 
-        public BagagesController(MyAirportContext context)
+        public VolsController(MyAirportContext context)
         {
             _context = context;
         }
 
-        // GET: api/Bagages
+        // GET: api/Vols
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Bagage>>> GetBagages()
+        public async Task<ActionResult<IEnumerable<Vol>>> GetVols()
         {
-            return await _context.Bagages.ToListAsync();
+            return await _context.Vols.ToListAsync();
         }
 
-        // GET: api/Bagages/5
+        // GET: api/Vols/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Bagage>> GetBagage(int id)
+        public async Task<ActionResult<Vol>> GetVol(int id)
         {
-            var bagage = await _context.Bagages.FindAsync(id);
+            var vol = await _context.Vols.FindAsync(id);
 
-            if (bagage == null)
+            if (vol == null)
             {
                 return NotFound();
             }
 
-            return bagage;
+            return vol;
         }
 
-        // PUT: api/Bagages/5
+        // PUT: api/Vols/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutBagage(int id, Bagage bagage)
+        public async Task<IActionResult> PutVol(int id, Vol vol)
         {
-            if (id != bagage.BagageId)
+            if (id != vol.VolId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(bagage).State = EntityState.Modified;
+            _context.Entry(vol).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +60,7 @@ namespace MyAirportAPI
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BagageExists(id))
+                if (!VolExists(id))
                 {
                     return NotFound();
                 }
@@ -74,37 +73,37 @@ namespace MyAirportAPI
             return NoContent();
         }
 
-        // POST: api/Bagages
+        // POST: api/Vols
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Bagage>> PostBagage(Bagage bagage)
+        public async Task<ActionResult<Vol>> PostVol(Vol vol)
         {
-            _context.Bagages.Add(bagage);
+            _context.Vols.Add(vol);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetBagage", new { id = bagage.BagageId }, bagage);
+            return CreatedAtAction("GetVol", new { id = vol.VolId }, vol);
         }
 
-        // DELETE: api/Bagages/5
+        // DELETE: api/Vols/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Bagage>> DeleteBagage(int id)
+        public async Task<ActionResult<Vol>> DeleteVol(int id)
         {
-            var bagage = await _context.Bagages.FindAsync(id);
-            if (bagage == null)
+            var vol = await _context.Vols.FindAsync(id);
+            if (vol == null)
             {
                 return NotFound();
             }
 
-            _context.Bagages.Remove(bagage);
+            _context.Vols.Remove(vol);
             await _context.SaveChangesAsync();
 
-            return bagage;
+            return vol;
         }
 
-        private bool BagageExists(int id)
+        private bool VolExists(int id)
         {
-            return _context.Bagages.Any(e => e.BagageId == id);
+            return _context.Vols.Any(e => e.VolId == id);
         }
     }
 }

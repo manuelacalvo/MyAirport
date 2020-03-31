@@ -28,7 +28,7 @@ namespace MCSP.MyAirport.webAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<MyAirportContext>(OptionsBuilderConfigurationExtensions => OptionsBuilderConfigurationExtensions.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MCSP_MyAirport;Integrated Security=True"));
+            services.AddDbContext<MyAirportContext>(OptionsBuilderConfigurationExtensions => OptionsBuilderConfigurationExtensions.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MyAirport;Integrated Security=True"));
             services.AddControllers();
         }
 
