@@ -4,14 +4,16 @@ using MCSP.MyAirport.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MCSP.MyAirport.EF.Migrations
 {
     [DbContext(typeof(MyAirportContext))]
-    partial class MyAirportContextModelSnapshot : ModelSnapshot
+    [Migration("20200228082729_Notnulladded")]
+    partial class Notnulladded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -23,34 +25,33 @@ namespace MCSP.MyAirport.EF.Migrations
                 {
                     b.Property<int>("BagageId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID_BAGAGE")
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Classe")
-                        .HasColumnType("char(1)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CodeIata")
-                        .IsRequired()
-                        .HasColumnType("char(12)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateCreation")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Destination")
-                        .HasColumnType("char(3)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Escale")
-                        .HasColumnType("char(3)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool?>("Prioritaire")
+                    b.Property<bool>("Prioritaire")
                         .HasColumnType("bit");
 
                     b.Property<string>("Ssur")
-                        .HasColumnType("char(3)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Sta")
-                        .HasColumnType("char(1)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)");
 
                     b.Property<int?>("VolId")
                         .HasColumnType("int");
@@ -66,32 +67,29 @@ namespace MCSP.MyAirport.EF.Migrations
                 {
                     b.Property<int>("VolId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("ID_VOL")
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Cie")
-                        .IsRequired()
-                        .HasColumnType("char(5)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Des")
-                        .HasColumnType("char(3)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("Dhc")
+                    b.Property<DateTime>("Dhc")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Imm")
-                        .HasColumnType("char(6)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Lig")
-                        .IsRequired()
-                        .HasColumnType("varchar(5)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<short?>("Pax")
+                    b.Property<short>("Pax")
                         .HasColumnType("smallint");
 
                     b.Property<string>("Pkg")
-                        .HasColumnType("char(3)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("VolId");
 
@@ -101,7 +99,7 @@ namespace MCSP.MyAirport.EF.Migrations
             modelBuilder.Entity("MCSP.MyAirport.EF.Bagage", b =>
                 {
                     b.HasOne("MCSP.MyAirport.EF.Vol", "Vol")
-                        .WithMany("Bagages")
+                        .WithMany()
                         .HasForeignKey("VolId");
                 });
 #pragma warning restore 612, 618
