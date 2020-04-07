@@ -23,7 +23,7 @@ namespace MCSP.MyAirport.ConsoleApp
             {
                 
                 // Create
-                Console.WriteLine("Création du vol LH1232");
+              /*  Console.WriteLine("Création du vol LH1232");
                 Vol v1 = new Vol
                 {
                     Cie = "LH",
@@ -57,10 +57,23 @@ namespace MCSP.MyAirport.ConsoleApp
                     DateCreation = Convert.ToDateTime("14/01/2020 12:52"),
                     Destination = "BEG"
                 };
-                db.Add(b1);
+                db.Add(b1);*/
+
+                Vol v3 = new Vol
+                {
+                    Cie = "CDG",
+                    Des = "BKK",
+                    Dhc = Convert.ToDateTime("18/03/2020 16:45"),
+                    Imm = "RB22",
+                    Lig = "1232",
+                    Pkg = "R52",
+                    Pax = 238
+                };
+                db.Add(v3);
+
 
                 db.SaveChanges();
-                Console.ReadLine();
+              /*  Console.ReadLine();
 
                 // ReadBagages_Vols_VolI
                 Console.WriteLine("Voici la liste des vols disponibles");
@@ -83,7 +96,7 @@ namespace MCSP.MyAirport.ConsoleApp
                 Console.WriteLine($"Suppression du vol {v1.VolId} => {v1.Cie}{v1.Lig}");
                 db.Remove(v1);
                 db.SaveChanges();
-                Console.ReadLine();
+                Console.ReadLine();*/
 
             }
         }

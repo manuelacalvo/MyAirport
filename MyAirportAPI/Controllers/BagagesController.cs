@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MCSP.MyAirport.EF;
 
+
 namespace MyAirportAPI
 {
     [Route("api/[controller]")]
@@ -21,6 +22,10 @@ namespace MyAirportAPI
         }
 
         // GET: api/Bagages
+        /// <summary>
+        /// Selectionne les bagages de manière asynchrone
+        /// </summary>
+        /// <returns>Un objet Task qui contient un Action Result qui lui même contient une liste de bagage</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Bagage>>> GetBagages()
         {

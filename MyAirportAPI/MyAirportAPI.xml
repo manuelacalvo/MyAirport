@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyAirportAPI</name>
+    </assembly>
+    <members>
+        <member name="M:MyAirportAPI.BagagesController.GetBagages">
+            <summary>
+            Selectionne les bagages de manière asynchrone
+            </summary>
+            <returns>Un objet Task qui contient un Action Result qui lui même contient une liste de bagage</returns>
+        </member>
+    </members>
+</doc>
