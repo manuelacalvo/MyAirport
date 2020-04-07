@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyAirport.EF</name>
+    </assembly>
+    <members>
+        <member name="T:MCSP.MyAirport.EF.Bagage">
+            <summary>
+            Objet Bagage
+            </summary>
+        </member>
+        <member name="P:MCSP.MyAirport.EF.Bagage.DateCreation">
+            <summary>
+            date a laquelle le bagage a été créé
+            </summary>
+        </member>
+    </members>
+</doc>
