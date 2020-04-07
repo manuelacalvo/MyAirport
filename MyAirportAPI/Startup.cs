@@ -62,6 +62,15 @@ namespace MCSP.MyAirport.webAPI
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
+               
+
+                var referencedAssemblies = Assembly.GetExecutingAssembly().GetReferencedAssemblies();
+                referencedAssemblies.ToList().ForEach(assembly =>
+                {
+                    var path = Path.Combine(AppContext.BaseDirectory, $"{assembly.Name}.xml");
+                    if (File.Exists(path))
+                        c.IncludeXmlComments(path);
+                });
             });
         }
 
