@@ -12,5 +12,9 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MyAirport.EF\MyAirport.EF.csproj" />
+  </ItemGroup>
+
 
 </Project>
