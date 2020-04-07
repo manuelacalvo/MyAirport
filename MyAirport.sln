@@ -13,6 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyAirportAPI", "MyAirportAP
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAirportGraphSQL", "MyAirportGraphSQL\MyAirportGraphSQL.csproj", "{84AA82D5-1BE9-4CFD-983E-350BD22D70FA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{342F4903-EF9F-4F76-B4FF-3807D5C21FA2} = {342F4903-EF9F-4F76-B4FF-3807D5C21FA2}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
