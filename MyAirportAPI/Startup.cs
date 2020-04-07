@@ -12,7 +12,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MCSP.MyAirport.EF;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
+using Newtonsoft.Json;
 
 namespace MCSP.MyAirport.webAPI
 {
@@ -29,7 +30,11 @@ namespace MCSP.MyAirport.webAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<MyAirportContext>(OptionsBuilderConfigurationExtensions => OptionsBuilderConfigurationExtensions.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MyAirport;Integrated Security=True"));
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(o =>
+            {
+                o.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            }); ;
+            ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
