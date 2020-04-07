@@ -33,6 +33,7 @@ namespace MyAirportAPI
         }
 
         // GET: api/Bagages/5
+        
         [HttpGet("{id}")]
         public async Task<ActionResult<Bagage>> GetBagage(int id)
         {
@@ -81,7 +82,9 @@ namespace MyAirportAPI
         // POST: api/Bagages
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
+    
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         public async Task<ActionResult<Bagage>> PostBagage(Bagage bagage)
         {
             _context.Bagages.Add(bagage);
