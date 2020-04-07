@@ -12,6 +12,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyAirportAPI", "MyAirportAP
 		{342F4903-EF9F-4F76-B4FF-3807D5C21FA2} = {342F4903-EF9F-4F76-B4FF-3807D5C21FA2}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAirportGraphQL", "MyAirportGraphQL\MyAirportGraphQL.csproj", "{35FA34A8-6668-409A-9C36-A4708CCD9917}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 		{BE4B0E0B-9B46-4159-A7A4-344781BFDD17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE4B0E0B-9B46-4159-A7A4-344781BFDD17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE4B0E0B-9B46-4159-A7A4-344781BFDD17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35FA34A8-6668-409A-9C36-A4708CCD9917}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35FA34A8-6668-409A-9C36-A4708CCD9917}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35FA34A8-6668-409A-9C36-A4708CCD9917}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35FA34A8-6668-409A-9C36-A4708CCD9917}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
