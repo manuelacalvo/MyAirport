@@ -6,11 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyAirport.EF\MyAirport.EF.csproj" />
+    <Compile Remove="Pages\Bagages\Class.cs" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Bagages\" />
+    <ProjectReference Include="..\MyAirport.EF\MyAirport.EF.csproj" />
   </ItemGroup>
 
   <ItemGroup>

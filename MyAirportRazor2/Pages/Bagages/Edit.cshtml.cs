@@ -10,14 +10,10 @@ using MCSP.MyAirport.EF;
 
 namespace MCSP.MyAirport.Razor.Pages_Bagages_
 {
-    public class EditModel : PageModel
+    public class EditModel : BagageModel
     {
-        private readonly MCSP.MyAirport.EF.MyAirportContext _context;
+        public EditModel(MyAirport.EF.MyAirportContext context) : base(context) { }
 
-        public EditModel(MCSP.MyAirport.EF.MyAirportContext context)
-        {
-            _context = context;
-        }
 
         [BindProperty]
         public Bagage Bagage { get; set; }
@@ -36,7 +32,7 @@ namespace MCSP.MyAirport.Razor.Pages_Bagages_
             {
                 return NotFound();
             }
-           ViewData["VolId"] = new SelectList(_context.Vols, "VolId", "Cie");
+            ViewData["VolId"] = SelectListVols;
             return Page();
         }
 

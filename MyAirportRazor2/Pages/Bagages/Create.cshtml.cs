@@ -6,22 +6,18 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MCSP.MyAirport.EF;
+using MCSP.MyAirport.Razor.Pages.Bagages;
 
-namespace MCSP.MyAirport.Razor.Pages_Bagages_
+namespace MCSP.MyAirport.Razor.Pages.Bagages
 {
-    public class CreateModel : PageModel
+    public class CreateModelBagage: BagageModel
     {
-        private readonly MCSP.MyAirport.EF.MyAirportContext _context;
-
-        public CreateModel(MCSP.MyAirport.EF.MyAirportContext context)
-        {
-            _context = context;
-        }
+        public CreateModelBagage(MyAirport.EF.MyAirportContext context) : base(context) { }
 
         public IActionResult OnGet()
         {
-        ViewData["VolId"] = new SelectList(_context.Vols, "VolId", "Cie");
-            return Page();
+            ViewData["VolId"] = SelectListVols;
+                return Page();
         }
 
         [BindProperty]
