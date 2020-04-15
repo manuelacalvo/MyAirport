@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MCSP.MyAirport.EF;
 
-namespace MyAirportRazor2.Pages_Bagages_
+namespace MCSP.MyAirport.Razor.Pages_Bagages_
 {
     public class DetailsModel : PageModel
     {
