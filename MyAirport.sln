@@ -14,7 +14,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyAirportAPI", "MyAirportAP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyAirportGraphQL", "MyAirportGraphQL\MyAirportGraphQL.csproj", "{35FA34A8-6668-409A-9C36-A4708CCD9917}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAirportRazor2", "MyAirportRazor2\MyAirportRazor2.csproj", "{7508F1F8-D9BC-48DC-BF3B-B0C834DBBF25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyAirportRazor", "MyAirportRazor\MyAirportRazor.csproj", "{7508F1F8-D9BC-48DC-BF3B-B0C834DBBF25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
