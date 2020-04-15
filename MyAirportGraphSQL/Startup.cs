@@ -23,10 +23,8 @@ namespace MyAirportGraphSQL
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllers();
-        }
+        public void ConfigureServices(IServiceCollection services)        {            services.AddSingleton<AirportQuery>();            services.AddSingleton<AirportSchema>();            services.AddSingleton<BagageType>();            services.AddSingleton<VolType>();            services.AddDbContext<MyAirportContext>(option =>            option.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MyAirportCodeFirst;Integrated Security=True"));            services.AddControllers();        }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -35,6 +33,8 @@ namespace MyAirportGraphSQL
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseGraphiQLServer(new GraphQL.Server.Ui.GraphiQL.GraphiQLOptions { GraphiQLPath = "/api/graphql" });
 
             app.UseHttpsRedirection();
 
