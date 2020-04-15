@@ -23,7 +23,7 @@ namespace MCSP.MyAirport.Razor
                  Description = $"{v.Cie} {v.Lig} : {v.Dhc.ToString()}"
              })
              .ToList();
-
+                vols.Insert(0, null);
 
                 return new SelectList(vols, "VolId", "Description");
 
