@@ -2,7 +2,7 @@
 @model MCSP.MyAirport.Razor.Pages_Bagages_.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "IndexBagages";
 }
 
 <h1>Index</h1>
@@ -57,6 +57,11 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Classe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vol.Cie)
+                @Html.DisplayFor(modelItem => item.Vol.Lig)
+                @Html.DisplayFor(modelItem => item.Vol.Dhc.ToString())
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Prioritaire)
