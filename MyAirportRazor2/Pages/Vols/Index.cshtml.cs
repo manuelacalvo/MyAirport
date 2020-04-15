@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using MCSP.MyAirport.EF;
 
-namespace MCSP.MyAirport.Razor
+namespace MCSP.MyAirport.Razor.Pages_Vols_
 {
     public class IndexModel : PageModel
     {

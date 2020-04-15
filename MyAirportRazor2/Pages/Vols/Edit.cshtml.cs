@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MCSP.MyAirport.EF;
 
-namespace MCSP.MyAirport.Razor
+namespace MCSP.MyAirport.Razor.Pages_Vols_
 {
     public class EditModel : PageModel
     {
