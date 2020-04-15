@@ -9,18 +9,15 @@ using MCSP.MyAirport.EF;
 
 namespace MCSP.MyAirport.Razor.Pages_Bagages_
 {
-    public class CreateModel : PageModel
+    public class CreateModel : BagageModel
     {
-        private readonly MCSP.MyAirport.EF.MyAirportContext _context;
-
-        public CreateModel(MCSP.MyAirport.EF.MyAirportContext context)
-        {
-            _context = context;
-        }
+        public CreateModel(MCSP.MyAirport.EF.MyAirportContext context): base(context){}
 
         public IActionResult OnGet()
         {
-        ViewData["VolId"] = new SelectList(_context.Vols, "VolId", "Cie");
+
+            ViewData["VolId"] = SelectListVols;
+
             return Page();
         }
 
