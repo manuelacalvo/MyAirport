@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace MyAirportRazor
+namespace MCSP.MyAirport.Razor
 {
     public class Program
     {
