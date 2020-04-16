@@ -19,9 +19,7 @@ namespace MyAirportGraphQL.GraphQLType
             Field(x => x.Pax);
             Field(x => x.Pkg);
             Field(x => x.VolId);
-            
-
-
+           
         }
 
     }
