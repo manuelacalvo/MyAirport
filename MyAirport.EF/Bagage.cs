@@ -10,23 +10,44 @@ namespace MCSP.MyAirport.EF
     /// </summary>
     public class Bagage
     {
-        
+        /// <summary>
+        /// Constructeur par défault Bagage
+        /// </summary>
         public Bagage()
         {
 
         }
-        [Column("ID_BAGAGE")]
+
+        /// <summary>
+        /// Constructeur surchargé du bagage
+        /// </summary>
+        public Bagage(string code_iata, DateTime creation)
+        {
+            CodeIata = code_iata;
+            DateCreation = creation;
+        }
+
         /// <summary>
         /// id clé primaire de l'objet bagage
         /// </summary>
+        [Column("ID_BAGAGE")]
         public int BagageId { get; set; }
+
+        /// <summary>
+        /// id clé étrangère de l'objet vol
+        /// </summary>
         public int? VolId { get; set; }
+
+        /// <summary>
+        /// virtual vol
+        /// </summary>
         public virtual Vol Vol { get; set; } = null!;
 
-        [Column(TypeName = "char(12)")]
+       
         /// <summary>
         /// Code iata du bagage, unique à un instant t
-        /// </summary>
+        /// </summary> 
+        [Column(TypeName = "char(12)")]
         public string CodeIata { get; set; } = null!;
 
         /// <summary>
@@ -34,20 +55,38 @@ namespace MCSP.MyAirport.EF
         /// </summary>
         public DateTime DateCreation { get; set; }
 
+        /// <summary>
+        /// Classe du bagage
+        /// </summary>
         [Column(TypeName = "char(1)")]
         public string? Classe { get; set; }
 
+        /// <summary>
+        /// bagage prioritaire ou non
+        /// </summary>
         public bool? Prioritaire { get; set; }
 
+        /// <summary>
+        /// status du bagage
+        /// </summary>
         [Column(TypeName = "char(1)")]
         public char? Sta { get; set; }
 
+        /// <summary>
+        /// sureté du bagage
+        /// </summary>
         [Column(TypeName = "char(3)")]
         public string? Ssur { get; set; }
 
+        /// <summary>
+        /// Destination du bagage
+        /// </summary>
         [Column(TypeName = "char(3)")]
         public string? Destination { get; set; }
 
+        /// <summary>
+        /// Escale du bagage
+        /// </summary>
         [Column(TypeName = "char(3)")]
         public string? Escale { get; set; }
     }

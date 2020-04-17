@@ -20,17 +20,28 @@ using System.IO;
 
 namespace MCSP.MyAirport.webAPI
 {
+    /// <summary>
+    /// classe startup de l'API
+    /// </summary>
     public class Startup
     {
+        /// <summary>
+        /// Constructeur de la classe startup
+        /// </summary>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
+        /// <summary>
+        /// Configuration de l'API
+        /// </summary>
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        /// <summary>
+        /// Méthode permettant d'ajouter des services au conteneur de l'API
+        /// </summary>
+         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<MyAirportContext>(OptionsBuilderConfigurationExtensions => OptionsBuilderConfigurationExtensions.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MyAirport;Integrated Security=True"));
             services.AddControllers().AddNewtonsoftJson(o =>
@@ -74,8 +85,10 @@ namespace MCSP.MyAirport.webAPI
             });
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        /// <summary>
+        /// Configuration de la HTTP request pipeline
+        /// </summary>
+         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
