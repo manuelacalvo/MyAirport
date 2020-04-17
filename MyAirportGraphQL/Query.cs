@@ -1,5 +1,6 @@
 ﻿using GraphQL.Types;
 using MCSP.MyAirport.EF;
+using MyAirportGraphQL.GraphQLType;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace MyAirportGraphQL
     {
         public AirportQuery(MyAirportContext db)
         {
-            Field<ListGraphType<AirportQuery>>(
+            Field<ListGraphType<BagageType>>(
                 "bagages",
                 resolve: context => db.Bagages.ToList());
         }
