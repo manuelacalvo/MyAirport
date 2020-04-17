@@ -17,7 +17,7 @@ namespace MyAirportGraphQL.GraphQLType
             Field(x => x.DateCreation);
             Field(x => x.Destination);
             Field(x => x.Escale);
-        //    Field(x => x.Prioritaire);
+        //    Field(x => x.Prioritaire);    //Commenté car non null donc pb graphql
             Field(x => x.Ssur);
        //     Field(x => x.Sta);
         //    Field(x => x.VolId);

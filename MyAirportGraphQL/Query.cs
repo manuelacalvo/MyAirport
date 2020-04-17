@@ -15,6 +15,9 @@ namespace MyAirportGraphQL
             Field<ListGraphType<BagageType>>(
                 "bagages",
                 resolve: context => db.Bagages.ToList());
+            Field<ListGraphType<VolType>>(
+               "vols",
+               resolve: context => db.Vols.ToList());
         }
     }
 }

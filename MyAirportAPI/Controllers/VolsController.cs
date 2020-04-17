@@ -9,26 +9,46 @@ using MCSP.MyAirport.EF;
 
 namespace MyAirportAPI.Controllers
 {
+    /// <summary>
+    /// Objet volsController comprenant les routes de l'objet Vol
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class VolsController : ControllerBase
     {
         private readonly MyAirportContext _context;
 
+        /// <summary>
+        /// Constructeur de l'objet volsController
+        /// </summary>
         public VolsController(MyAirportContext context)
         {
             _context = context;
         }
 
-        // GET: api/Vols
+        /// <summary>
+        /// Selectionne les vols de manière asynchrone
+        /// GET: api/Vols
+        /// </summary>
+        /// <returns>Un objet Task qui contient un Action Result qui lui même contient une liste de vols</returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<Vol>>> GetVols()
         {
             return await _context.Vols.ToListAsync();
         }
 
-        // GET: api/Vols/5?bool displayBagages
+
+        /// <summary>
+        /// Selectionne le vol choisi de manière asynchrone
+        /// GET: api/Vols/5?bool displayBagages
+        /// </summary>
+        /// <param name="id">Id du vol a afficher</param>
+        /// <param name="displayBagages">Afficher info des bagages ou non</param>
+        /// <returns>Un objet Task qui contient un Action Result qui lui même contient un vol</returns>
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<Vol>> GetVol(int id,
             [FromQuery] bool displayBagages = false)
         {
@@ -52,10 +72,16 @@ namespace MyAirportAPI.Controllers
         
         }
 
-        // PUT: api/Vols/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        /// <summary>
+        /// Permet de modifier l'objet vol choisi
+        /// PUT: api/Vols/5
+        /// </summary>
+        /// <param name="id">Identifiant du vol a modifier</param>
+        /// <param name="vol">Nouvelles valeurs a remplacer du vol</param>
         [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> PutVol(int id, Vol vol)
         {
             if (id != vol.VolId)
@@ -84,10 +110,14 @@ namespace MyAirportAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Vols
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        /// <summary>
+        /// Ajout d'un vol
+        /// POST: api/Vols
+        /// </summary>
+        /// <param name="vol">Vol que l'on veut créer</param>
+        /// <returns>Vol</returns>
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         public async Task<ActionResult<Vol>> PostVol(Vol vol)
         {
             _context.Vols.Add(vol);
@@ -96,8 +126,14 @@ namespace MyAirportAPI.Controllers
             return CreatedAtAction("GetVol", new { id = vol.VolId }, vol);
         }
 
-        // DELETE: api/Vols/5
+        /// <summary>
+        /// Suppression d'un vol
+        /// DELETE: api/Vols/5
+        /// </summary>
+        /// <param name="id">Id du vol a supprimer</param>
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<Vol>> DeleteVol(int id)
         {
             var vol = await _context.Vols.FindAsync(id);

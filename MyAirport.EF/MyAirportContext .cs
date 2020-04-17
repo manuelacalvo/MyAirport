@@ -7,16 +7,32 @@ using Microsoft.Extensions.Logging;
 
 namespace MCSP.MyAirport.EF
 {
+    /// <summary>
+    /// composant MyAirportContext
+    /// </summary>
     public class MyAirportContext : DbContext
     {
+        /// <summary>
+        /// Constructeur MyAirportContext
+        /// </summary>
         public MyAirportContext(DbContextOptions<MyAirportContext> options) : base(options)
         {
 
         }
-        
+
+        /// <summary>
+        /// Factory permettant de creer des BDD
+        /// </summary>
         public static readonly ILoggerFactory MyAirportLoggerFactory = LoggerFactory.Create(builder => { builder.AddConsole(); });
 
+        /// <summary>
+        /// Ajout Bdd Bagages
+        /// </summary>
         public DbSet<Bagage> Bagages { get; set; } = null!;
+
+        /// <summary>
+        /// Ajout Bdd Vols
+        /// </summary>
         public DbSet<Vol> Vols { get; set; } = null!;
 
 
