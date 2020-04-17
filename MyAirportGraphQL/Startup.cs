@@ -4,6 +4,8 @@ using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using GraphQL;
+using GraphQL.Server;
+using GraphQL.Server.Ui.GraphiQL;
 using MCSP.MyAirport.EF;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -15,6 +17,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MyAirportGraphQL.GraphQLType;
+using Newtonsoft.Json;
 
 namespace MyAirportGraphQL
 {
@@ -30,14 +33,32 @@ namespace MyAirportGraphQL
 
         public void ConfigureServices(IServiceCollection services)
         {
+           
+            #region spécifique GraphQL 
             services.AddScoped<IDependencyResolver>(x => new FuncDependencyResolver(x.GetRequiredService));
-            services.AddScoped<AirportQuery>();
-            services.AddScoped<AirportSchema>();
             services.AddScoped<BagageType>();
             services.AddScoped<VolType>();
+            services.AddScoped<AirportQuery>();
+            services.AddScoped<AirportSchema>();
+             services.AddGraphQL(options =>
+            {
+                options.EnableMetrics = true;
+                options.ExposeExceptions = true;
+            });
+            #endregion
+            services.Configure<IISServerOptions>(options =>
+            {
+                options.AllowSynchronousIO = true;
+            });
+
+            services.AddControllers().AddNewtonsoftJson(o =>
+            {
+                o.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            });
             services.AddDbContext<MyAirportContext>(option =>
             option.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MyAirport;Integrated Security=True"));
-
+            
+           
             services.AddControllers();
         }
 
@@ -48,7 +69,10 @@ namespace MyAirportGraphQL
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseGraphiQLServer(new GraphQL.Server.Ui.GraphiQL.GraphiQLOptions { GraphiQLPath = "/api/graphql" });
+
+            app.UseGraphQL<AirportSchema>();
+
+            app.UseGraphiQLServer(new GraphiQLOptions { GraphQLEndPoint="/graphql", GraphiQLPath = "/graphiql" });
 
             app.UseHttpsRedirection();
 
