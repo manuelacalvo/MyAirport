@@ -30,6 +30,7 @@ namespace MyAirportAPI.Controllers
         /// Selectionne les vols de manière asynchrone
         /// GET: api/Vols
         /// </summary>
+        /// <response code="200">Retourne le vol demandé</response> 
         /// <returns>Un objet Task qui contient un Action Result qui lui même contient une liste de vols</returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -45,6 +46,8 @@ namespace MyAirportAPI.Controllers
         /// </summary>
         /// <param name="id">Id du vol a afficher</param>
         /// <param name="displayBagages">Afficher info des bagages ou non</param>
+        /// <response code="200">Retourne le vol demandé</response>
+        /// <response code="404">Si le vol n'est pas trouvé</response> 
         /// <returns>Un objet Task qui contient un Action Result qui lui même contient un vol</returns>
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -78,6 +81,9 @@ namespace MyAirportAPI.Controllers
         /// </summary>
         /// <param name="id">Identifiant du vol a modifier</param>
         /// <param name="vol">Nouvelles valeurs a remplacer du vol</param>
+        /// <response code="204">Si le vol a bien était modifié</response>
+        /// <response code="400">Si un problème apparait</response>
+        /// <response code="404">Si le vol n'est pas trouvé</response> 
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -115,6 +121,7 @@ namespace MyAirportAPI.Controllers
         /// POST: api/Vols
         /// </summary>
         /// <param name="vol">Vol que l'on veut créer</param>
+        /// <response code="201">Retourne le vol créé</response>
         /// <returns>Vol</returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -131,6 +138,8 @@ namespace MyAirportAPI.Controllers
         /// DELETE: api/Vols/5
         /// </summary>
         /// <param name="id">Id du vol a supprimer</param>
+        /// <response code="204">Le vol a bien était supprimé</response>
+        /// <response code="404">Le vol n'a pas était trouvé</response>
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

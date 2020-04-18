@@ -26,11 +26,12 @@ namespace MyAirportAPI
             _context = context;
         }
 
-        
+
         /// <summary>
         /// Selectionne les bagages de manière asynchrone
         /// GET: api/Bagages
         /// </summary>
+        /// <response code="200">Retourne le bagage demandé</response> 
         /// <returns>Un objet Task qui contient un Action Result qui lui même contient une liste de bagage</returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -39,12 +40,14 @@ namespace MyAirportAPI
             return await _context.Bagages.ToListAsync();
         }
 
-        
+
         /// <summary>
         /// Selectionne le bagage choisi de manière asynchrone
         /// GET: api/Bagages/5
         /// </summary>
         /// <param name="id">Id du bagage a afficher</param>
+        /// <response code="200">Retourne le bagage demandé</response>
+        /// <response code="404">Si le bagage n'est pas trouvé</response> 
         /// <returns>Un objet Task qui contient un Action Result qui lui même contient un bagage</returns>
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -68,6 +71,9 @@ namespace MyAirportAPI
         /// </summary>
         /// <param name="id">Identifiant du bagage a modifier</param>
         /// <param name="bagage">Nouvelles valeurs a remplacer du bagage</param>
+        /// <response code="204">Si le bagage a bien était modifié</response>
+        /// <response code="400">Si un problème apparait</response>
+        /// <response code="404">Si le bagage n'est pas trouvé</response> 
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -100,12 +106,13 @@ namespace MyAirportAPI
             return NoContent();
         }
 
-        
+
         /// <summary>
         /// Ajout d'un bagage
         /// POST: api/Bagages
         /// </summary>
         /// <param name="bagage">Bagage que l'on veut créer</param>
+        /// <response code="201">Retourne le bagage créé</response>
         /// <returns>Bagage</returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -123,6 +130,8 @@ namespace MyAirportAPI
         /// DELETE: api/Bagages/5
         /// </summary>
         /// <param name="id">Id du bagage a supprimer</param>
+        /// <response code="204">Le bagage a bien était supprimé</response>
+        /// <response code="404">Le bagege n'a pas était trouvé</response>
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

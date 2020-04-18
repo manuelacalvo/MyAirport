@@ -78,7 +78,7 @@ namespace MCSP.MyAirport.EF
 
 
         /// <summary>
-        /// Collection de bagage virtuel du vol
+        /// Jointure: ppté de navigation vers la liste des bagages attribuée au vol
         /// </summary>
         public virtual ICollection<Bagage> Bagages { get; set; }
     }
