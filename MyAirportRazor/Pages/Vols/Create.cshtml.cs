@@ -9,11 +9,11 @@ using MCSP.MyAirport.EF;
 
 namespace MCSP.MyAirport.Razor.Pages_Vols_
 {
-    public class CreateModel : PageModel
+    public class CreateModelVol : PageModel
     {
         private readonly MCSP.MyAirport.EF.MyAirportContext _context;
 
-        public CreateModel(MCSP.MyAirport.EF.MyAirportContext context)
+        public CreateModelVol(MCSP.MyAirport.EF.MyAirportContext context)
         {
             _context = context;
         }

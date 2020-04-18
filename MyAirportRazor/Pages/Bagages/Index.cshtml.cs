@@ -9,11 +9,11 @@ using MCSP.MyAirport.EF;
 
 namespace MCSP.MyAirport.Razor.Pages_Bagages_
 {
-    public class IndexModel : PageModel
+    public class IndexModelBagage : PageModel
     {
         private readonly MCSP.MyAirport.EF.MyAirportContext _context;
 
-        public IndexModel(MCSP.MyAirport.EF.MyAirportContext context)
+        public IndexModelBagage(MCSP.MyAirport.EF.MyAirportContext context)
         {
             _context = context;
         }

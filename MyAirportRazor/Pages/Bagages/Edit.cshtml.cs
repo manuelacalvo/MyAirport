@@ -10,9 +10,9 @@ using MCSP.MyAirport.EF;
 
 namespace MCSP.MyAirport.Razor.Pages_Bagages_
 {
-    public class EditModel : BagageModel
+    public class EditModelBagage : BagageModel
     {
-        public EditModel(MyAirport.EF.MyAirportContext context) : base(context) { }
+        public EditModelBagage(MyAirport.EF.MyAirportContext context) : base(context) { }
 
 
         [BindProperty]
