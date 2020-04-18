@@ -17,11 +17,10 @@ namespace MyAirportGraphQL.GraphQLType
             Field(x => x.DateCreation);
             Field(x => x.Destination);
             Field(x => x.Escale);
-        //    Field(x => x.Prioritaire);    //Commenté car non null donc pb graphql
+            Field(x => x.Prioritaire, nullable: true);    
             Field(x => x.Ssur);
-       //     Field(x => x.Sta);
-        //    Field(x => x.VolId);
-
+            Field<StringGraphType>("Sta", resolve: context => ((Bagage)context.Source).Sta.ToString());
+            Field(x => x.VolId, nullable: true);
 
         }
       
