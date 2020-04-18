@@ -21,7 +21,7 @@ namespace MCSP.MyAirport.EF
         }
 
         /// <summary>
-        /// Factory permettant de creer des BDD
+        /// Journalisation dans la console
         /// </summary>
         public static readonly ILoggerFactory MyAirportLoggerFactory = LoggerFactory.Create(builder => { builder.AddConsole(); });
 
