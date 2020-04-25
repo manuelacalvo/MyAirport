@@ -27,9 +27,8 @@ namespace MCSP.MyAirport.Razor
                  v.VolId,
                  Description = $"{v.Cie} {v.Lig} : {v.Dhc.ToString()}"
              })
-             //.Union(v => new { VolId = null, Description = "N/A" })
              .ToList();
-               // vols.Insert(0,null);
+               vols.Insert(vols.Count, new { VolId = -1, Description = "N/A" });
                
 
                 return new SelectList(vols, "VolId", "Description");

@@ -32,7 +32,7 @@ namespace MCSP.MyAirport.Razor.Pages_Bagages_
             {
                 return NotFound();
             }
-            ViewData["VolId"] = SelectListVols;
+            ViewData["VolInfo"] = SelectListVols;
             return Page();
         }
 
@@ -42,6 +42,7 @@ namespace MCSP.MyAirport.Razor.Pages_Bagages_
         {
             if (!ModelState.IsValid)
             {
+                ViewData["VolInfo"] = SelectListVols;
                 return Page();
             }
 

@@ -151,7 +151,7 @@ namespace MCSP.MyAirport.ConsoleApp
                 db.SaveChanges();
 
                 Console.ReadLine();
-
+               
 
             }
         }

@@ -51,7 +51,7 @@ namespace MCSP.MyAirport.EF
         /// <summary>
         /// DHC du vol
         /// </summary>
-        public DateTime? Dhc { get; set; }
+        public DateTime Dhc { get; set; }
 
         /// <summary>
         /// Parking du vol
@@ -80,6 +80,6 @@ namespace MCSP.MyAirport.EF
         /// <summary>
         /// Jointure: ppté de navigation vers la liste des bagages attribuée au vol
         /// </summary>
-        public virtual ICollection<Bagage> Bagages { get; set; }
+        public virtual ICollection<Bagage>? Bagages { get; set; }
     }
 }
