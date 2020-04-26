@@ -41,7 +41,7 @@ namespace MCSP.MyAirport.EF
         /// <summary>
         /// Jointure: ppté de navigation vers un vol
         /// </summary>
-        public virtual Vol Vol { get; set; } = null!;
+        public virtual Vol? Vol { get; set; } = null!;
 
        
         /// <summary>

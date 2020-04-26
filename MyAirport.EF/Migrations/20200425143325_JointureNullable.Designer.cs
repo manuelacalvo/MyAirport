@@ -4,14 +4,16 @@ using MCSP.MyAirport.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MCSP.MyAirport.EF.Migrations
 {
     [DbContext(typeof(MyAirportContext))]
-    partial class MyAirportContextModelSnapshot : ModelSnapshot
+    [Migration("20200425143325_JointureNullable")]
+    partial class JointureNullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,9 +61,6 @@ namespace MCSP.MyAirport.EF.Migrations
 
                     b.HasIndex("VolId");
 
-                    b.HasIndex("CodeIata", "DateCreation")
-                        .IsUnique();
-
                     b.ToTable("Bagages");
                 });
 
@@ -80,7 +79,7 @@ namespace MCSP.MyAirport.EF.Migrations
                     b.Property<string>("Des")
                         .HasColumnType("char(3)");
 
-                    b.Property<DateTime>("Dhc")
+                    b.Property<DateTime?>("Dhc")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Imm")
@@ -97,9 +96,6 @@ namespace MCSP.MyAirport.EF.Migrations
                         .HasColumnType("char(3)");
 
                     b.HasKey("VolId");
-
-                    b.HasIndex("Cie", "Lig", "Dhc")
-                        .IsUnique();
 
                     b.ToTable("Vols");
                 });

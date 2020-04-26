@@ -12,7 +12,7 @@ namespace MCSP.MyAiport.EF
         public MyAirportContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<MyAirportContext>(); 
-                optionsBuilder.UseSqlServer(@"Data Source=localhost,1433;Initial Catalog=MyAirport;User ID=croisillon;Password=Croisillon4!;"); 
+                optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MyAirport;Integrated Security=True"); 
             var loggerFactory = LoggerFactory.Create(builder => {
                 builder.AddFilter("Microsoft", LogLevel.Debug).AddFilter("System", LogLevel.Warning);
             });

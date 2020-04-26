@@ -10,14 +10,13 @@ using MCSP.MyAirport.Razor.Pages.Bagages;
 
 namespace MCSP.MyAirport.Razor.Pages.Bagages
 {
-    public class CreateModelBagage: BagageModel
+    public class CreateModelBagage : BagageModel
     {
         public CreateModelBagage(MyAirport.EF.MyAirportContext context) : base(context) { }
-
         public IActionResult OnGet()
         {
-            ViewData["VolId"] = SelectListVols;
-                return Page();
+            ViewData["VolInfo"] = SelectListVols;
+            return Page();
         }
 
         [BindProperty]
@@ -29,13 +28,21 @@ namespace MCSP.MyAirport.Razor.Pages.Bagages
         {
             if (!ModelState.IsValid)
             {
+                ViewData["VolInfo"] = SelectListVols;
                 return Page();
+            }
+
+           if(Bagage.VolId == -1)
+            {
+                Bagage.VolId = null;
+                Bagage.Vol = null;
             }
 
             _context.Bagages.Add(Bagage);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            
+            return RedirectToPage("./Details", new { id = Bagage.BagageId});
         }
     }
 }

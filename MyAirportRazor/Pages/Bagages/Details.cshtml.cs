@@ -16,6 +16,7 @@ namespace MCSP.MyAirport.Razor.Pages_Bagages_
         public DetailsModelBagage(MCSP.MyAirport.EF.MyAirportContext context)
         {
             _context = context;
+            
         }
 
         public Bagage Bagage { get; set; }

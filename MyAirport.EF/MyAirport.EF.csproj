@@ -7,6 +7,15 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Migrations\20200425173005_UniqueConstraints.cs" />
+    <Compile Remove="Migrations\20200425173005_UniqueConstraints.Designer.cs" />
+    <Compile Remove="Migrations\20200425173914_DhcNotNullable.cs" />
+    <Compile Remove="Migrations\20200425173914_DhcNotNullable.Designer.cs" />
+    <Compile Remove="Migrations\20200425174525_UniqueConstraints.cs" />
+    <Compile Remove="Migrations\20200425174525_UniqueConstraints.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2" />

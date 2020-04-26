@@ -35,13 +35,21 @@ namespace MCSP.MyAirport.EF
         /// </summary>
         public DbSet<Vol> Vols { get; set; } = null!;
 
-
-      /* protected override void OnConfiguring(DbContextOptionsBuilder options)
+        /// <summary>
+        /// Ajout Contraintes d'unicité
+        /// </summary>
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MyAirport;Integrated Security=True");
-            options.UseSqlServer(ConfigurationManager.ConnectionStrings["MyAirportDatabase"].ConnectionString);
-            options.UseLoggerFactory(MyAirportLoggerFactory);
-        }*/
+            modelBuilder.Entity<Bagage>().HasIndex(x => new { x.CodeIata, x.DateCreation }).IsUnique();
+            modelBuilder.Entity<Vol>().HasIndex(x => new { x.Cie, x.Lig, x.Dhc }).IsUnique();
+        }
+        
+        /* protected override void OnConfiguring(DbContextOptionsBuilder options)
+          {
+              //options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=MyAirport;Integrated Security=True");
+              options.UseSqlServer(ConfigurationManager.ConnectionStrings["MyAirportDatabase"].ConnectionString);
+              options.UseLoggerFactory(MyAirportLoggerFactory);
+          }*/
     }
 
 }
