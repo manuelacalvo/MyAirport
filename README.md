@@ -15,7 +15,10 @@
 	```
 	{bagages{bagageId,codeIata}}
 	```
-
+	```
+	{vols{volId,lig, des}}
+	```
+	
 * Sans GraphIQL : 
 * Bagages: https://localhost:44351/graphql?Query={bagages{bagageId}}
 * Vols: https://localhost:44351/graphql?Query={vols{volId}}
